@@ -23,7 +23,16 @@ export default function Hero() {
               height={500} 
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain hidden md:block"
+            />
+            <Image 
+              src="/images/doc-driven-dev-process-mobile.png" 
+              alt="Doc-Driven Development Process Overview (Mobile)" 
+              width={1000} 
+              height={500} 
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="w-full h-auto object-contain md:hidden"
             />
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

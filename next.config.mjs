@@ -10,8 +10,10 @@ const nextConfig = {
             'www.docdrivendev.com',
             'www.documentdrivendevelopment.com',
             'www.documentationdrivendevelopment.com'
-        ]
-    }
+        ],
+        unoptimized: true
+    },
+    output: 'export'
 };
 
 export default nextConfig;
