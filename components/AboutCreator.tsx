@@ -14,8 +14,10 @@ export default function AboutCreator() {
                   <Image 
                     src="/images/about-ryan-vice.jpeg"
                     alt="Ryan Vice speaking at a tech conference"
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                    priority
                   />
                 </div>
                 <div className="p-6 md:p-10 flex flex-col justify-center">

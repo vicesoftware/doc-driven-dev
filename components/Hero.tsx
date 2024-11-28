@@ -21,6 +21,8 @@ export default function Hero() {
               alt="Doc-Driven Development Process Overview" 
               width={1000} 
               height={500} 
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="w-full h-auto object-contain"
             />
           </div>
