@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { AnimatedText } from "./AnimatedText"
 import { ArrowRight } from 'lucide-react'
+import Image from "next/image"
 
 export default function Hero() {
   return (
@@ -14,6 +15,15 @@ export default function Hero() {
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             A revolutionary AI-driven approach to software development that puts documentation at the forefront of the process.
           </p>
+          <div className="max-w-3xl mx-auto mb-8">
+            <Image 
+              src="/images/doc-driven-dev-process.png" 
+              alt="Doc-Driven Development Process Overview" 
+              width={1000} 
+              height={500} 
+              className="w-full h-auto object-contain"
+            />
+          </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 group">
               Get Started
@@ -28,4 +38,3 @@ export default function Hero() {
     </section>
   )
 }
-
