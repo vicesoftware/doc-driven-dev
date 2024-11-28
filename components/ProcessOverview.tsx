@@ -30,7 +30,7 @@ export default function ProcessOverview() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4 text-primary">Simplify Your Development</h2>
           <p className="text-muted-foreground">
-            From documentation to deployment, DDD's AI-driven approach supports a wide range of
+            From documentation to deployment, DDD&apos;s AI-driven approach supports a wide range of
             development workflows and use cases.
           </p>
         </div>
@@ -52,4 +52,3 @@ export default function ProcessOverview() {
     </section>
   )
 }
-

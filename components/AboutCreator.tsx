@@ -26,7 +26,7 @@ export default function AboutCreator() {
                   a hybrid development model with distributed teams across various time zones, allowing for limited daily collaboration. 
                   Vice Software often embeds its teams within client organizations, with Ryan customizing processes for each project. 
                   This approach has given him deep insights into optimizing workflows in challenging situations. Ryan believes that 
-                  harnessing AI's productivity potential in complex projects hinges on effective processes. He has developed a method 
+                  harnessing AI&apos;s productivity potential in complex projects hinges on effective processes. He has developed a method 
                   for using AI in code generation, integrating Domain-Driven Design (DDD) to enhance its practical application.
                   </p>
                   <p className="text-sm text-muted-foreground">
@@ -42,4 +42,3 @@ export default function AboutCreator() {
     </section>
   )
 }
-
