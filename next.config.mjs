@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+        loader: 'custom',
+        loaderFile: './lib/imageLoader.ts',
         domains: [
             'docdrivendevelopment.com',
             'docdrivendev.com',
@@ -11,9 +13,16 @@ const nextConfig = {
             'www.documentdrivendevelopment.com',
             'www.documentationdrivendevelopment.com'
         ],
-        unoptimized: true
+        deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     },
-    output: 'export'
+    output: 'export',
+    webpack: (config, { isServer }) => {
+        if (isServer) {
+            config.externals = [...config.externals, 'sharp']
+        }
+        return config
+    }
 };
 
 export default nextConfig;
