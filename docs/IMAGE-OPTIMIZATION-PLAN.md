@@ -24,19 +24,19 @@ The application is experiencing image loading issues when deployed to Digital Oc
   - ✓ Configure AWS CLI with Space credentials (profile: doc-driven-dev-spaces)
   - ✓ Convert and optimize images to WebP format
   - ✓ Upload optimized images to Space
-  - [ ] Update application code to use Space URLs
-  - Separate static assets from application code
-  - Better scalability and management
-  - Enables CDN integration
+  - [ ] Update component image references to use Space URLs
+  - ✓ Separate static assets from application code
+  - ✓ Better scalability and management
+  - [ ] Enable CDN integration
   - **Detailed implementation plan: [DO-SPACES-MIGRATION.md](DO-SPACES-MIGRATION.md)**
 
 - [ ] Enable CDN for Spaces
   - [ ] Configure CDN endpoints
-  - [ ] Set up proper cache headers
+  - [ ] Verify cache headers are working:
     ```
     Cache-Control: public, max-age=31536000
     ```
-  - [ ] Configure CORS if needed
+  - [ ] Monitor CDN performance and costs
 
 - [ ] Review App Platform Configuration
   - [ ] Increase instance size if needed
@@ -45,17 +45,18 @@ The application is experiencing image loading issues when deployed to Digital Oc
 
 ### 2. Image Processing Pipeline 🖼️
 
-- [~] Implement pre-optimization workflow
+- [✓] Implement pre-optimization workflow
   - ✓ Set up sharp-cli for batch processing
   - ✓ Create optimization script for build process
   - ✓ Define standard image sizes and formats
+  - **Details in: [Image Preprocessing Guide](IMAGE-PREPROCESSING.md)**
 
-- [~] Generate multiple formats
+- [✓] Generate multiple formats
   - ✓ Convert images to WebP with fallbacks
   - ✓ Create responsive sizes for common breakpoints
-  - [ ] Implement srcset in components
+  - ✓ Generated sizes: 640px, 750px, 828px, 1080px, 1200px, 1920px
 
-- [~] Optimize existing images
+- [✓] Optimize existing images
   - ✓ Audit current image sizes and formats
   - ✓ Batch process existing images
   - ✓ Verify quality vs file size balance
@@ -65,6 +66,7 @@ The application is experiencing image loading issues when deployed to Digital Oc
 - [ ] Implement client-side caching
   - [ ] Configure service worker for image caching
   - [ ] Set up proper cache invalidation
+  - [ ] Monitor cache hit rates
 
 - [ ] Add server-side caching layer
   - [ ] Set up Redis or similar caching solution
@@ -73,30 +75,11 @@ The application is experiencing image loading issues when deployed to Digital Oc
 
 ### 4. Code Optimizations 💻
 
-- [ ] Update image loader implementation
-  ```typescript
-  // Example optimization
-  export default function imageLoader({
-    src,
-    width,
-    quality
-  }: {
-    src: string;
-    width: number;
-    quality?: number;
-  }) {
-    if (src.startsWith('https://')) {
-      const params = [`w=${width}`]
-      if (quality) {
-        params.push(`q=${quality || 75}`)
-      }
-      // Add format conversion
-      params.push('f=auto')
-      return `${src}?${params.join('&')}`
-    }
-    return src
-  }
-  ```
+- [~] Update image loader implementation
+  - ✓ Handle DO Spaces URLs
+  - ✓ Implement responsive size selection
+  - ✓ Add WebP support
+  - [ ] Test edge cases and fallbacks
 
 - [ ] Implement lazy loading
   - [ ] Add loading="lazy" to below-fold images
@@ -106,7 +89,10 @@ The application is experiencing image loading issues when deployed to Digital Oc
 ### 5. Monitoring & Analytics 📊
 
 - [ ] Set up performance monitoring
-  - [ ] Track image load times
+  - [ ] Track Web Vitals metrics
+    - Largest Contentful Paint (LCP)
+    - First Contentful Paint (FCP)
+    - Cumulative Layout Shift (CLS)
   - [ ] Monitor CDN cache hit rates
   - [ ] Set up alerts for timeout errors
 
@@ -133,10 +119,12 @@ Current Status (as of last update):
    - Converted all images to WebP format
    - Generated responsive sizes (640px, 750px, 828px, 1080px, 1200px, 1920px)
 4. ✓ Successfully uploaded all optimized images to DO Space
-5. Next steps:
-   - Update next.config.mjs to allow Space domain
-   - Enhance imageLoader.ts to handle WebP and responsive sizes
+5. ✓ Implemented imageLoader.ts with responsive size handling
+6. Next steps:
    - Update component image references to use Space URLs
+   - Enable and configure CDN
+   - Implement service worker for client-side caching
+   - Set up monitoring and logging
 
 ## Notes
 
@@ -144,3 +132,6 @@ Current Status (as of last update):
 - Monitor metrics before and after each change
 - Document any configuration changes for team reference
 - Consider A/B testing major changes to measure impact
+- Keep original images as backup before optimization
+- Regular performance audits using Lighthouse
+- Monitor CDN costs and adjust caching strategy if needed
