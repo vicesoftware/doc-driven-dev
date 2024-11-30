@@ -8,6 +8,7 @@ const nextConfig = {
         loaderFile: './lib/imageLoader.ts',
         domains: [
             'doc-driven-dev-space.nyc3.digitaloceanspaces.com',
+            'doc-driven-dev-space.nyc3.cdn.digitaloceanspaces.com',
             'docdrivendevelopment.com',
             'docdrivendev.com',
             'documentdrivendevelopment.com',
@@ -20,7 +21,6 @@ const nextConfig = {
         deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
         imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     },
-    output: 'export',
     webpack: (config, { isServer }) => {
         if (isServer) {
             config.externals = [...config.externals, 'sharp']
