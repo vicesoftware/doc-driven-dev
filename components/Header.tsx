@@ -25,7 +25,9 @@ export default function Header() {
               <span>Star on GitHub</span>
             </Button>
           </Link>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">Get Started</Button>
+          <Link href="https://www.vicesoftware.com/ryan" target="_blank" rel="noopener noreferrer">
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">Get Started</Button>
+          </Link>
         </nav>
       </div>
     </header>
