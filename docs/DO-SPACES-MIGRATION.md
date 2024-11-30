@@ -44,10 +44,22 @@
 
 ### 4. Code Updates (Next Steps)
 
+#### Environment Configuration
+```bash
+# Development (local images)
+# No SPACE_IMAGES_URL set
+
+# Production
+SPACE_IMAGES_URL=https://doc-driven-dev-space.nyc3.digitaloceanspaces.com/images
+```
+
 #### Update next.config.mjs
 ```javascript
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    env: {
+        SPACE_IMAGES_URL: process.env.SPACE_IMAGES_URL || ''
+    },
     images: {
         loader: 'custom',
         loaderFile: './lib/imageLoader.ts',
@@ -65,50 +77,48 @@ export default nextConfig;
 ```
 
 #### Update imageLoader.ts
+For detailed environment-specific image handling, see [IMAGE-ENVIRONMENT-STRATEGY.md](IMAGE-ENVIRONMENT-STRATEGY.md).
+
 ```typescript
+const RESPONSIVE_SIZES = [640, 750, 828, 1080, 1200, 1920];
+
 export default function imageLoader({ 
   src, 
   width, 
-  quality 
+  quality = 75 
 }: { 
   src: string; 
   width: number; 
   quality?: number 
 }) {
-  // Handle DO Spaces URLs
-  if (src.startsWith('https://doc-driven-dev-space.nyc3.digitaloceanspaces.com')) {
-    // Extract the base filename without extension
-    const baseName = src.split('/').pop()?.split('.')[0];
-    // Use the closest width version
-    const sizes = [640, 750, 828, 1080, 1200, 1920];
-    const targetWidth = sizes.reduce((prev, curr) => {
+  // If SPACE_IMAGES_URL is not set, use local development flow
+  if (!process.env.SPACE_IMAGES_URL) {
+    return src;
+  }
+
+  // For local image paths, transform to Space URLs with responsive sizes
+  if (src.startsWith('/images/')) {
+    const filename = src.split('/').pop()?.split('.')[0];
+    if (!filename) return src;
+
+    const targetWidth = RESPONSIVE_SIZES.reduce((prev, curr) => {
       return Math.abs(curr - width) < Math.abs(prev - width) ? curr : prev;
     });
-    
-    return `https://doc-driven-dev-space.nyc3.digitaloceanspaces.com/images/${baseName}.${targetWidth}.webp`;
+
+    return `${process.env.SPACE_IMAGES_URL}/${filename}.${targetWidth}.webp`;
   }
-  
-  // For other URLs, maintain existing behavior with WebP support
-  if (src.startsWith('https://')) {
-    const params = [`w=${width}`]
-    if (quality) {
-      params.push(`q=${quality}`)
-    }
-    // Add WebP format conversion for non-Space URLs
-    params.push('f=webp')
-    return `${src}?${params.join('&')}`
-  }
-  return src
+
+  return src;
 }
 ```
 
-### 5. Component Updates (Next Steps)
-Update all image references in components to use the new DO Spaces URLs. For detailed implementation guidelines, see [Image Preprocessing Guide](IMAGE-PREPROCESSING.md).
+### 5. Component Updates
+Update all image references to use relative paths. For detailed implementation guidelines, see [Image Preprocessing Guide](IMAGE-PREPROCESSING.md).
 
 Example format:
 ```typescript
 <Image
-  src="https://doc-driven-dev-space.nyc3.digitaloceanspaces.com/images/example.webp"
+  src="/images/example.png"  // Use local path - imageLoader handles environment switching
   alt="Description"
   width={1200}
   height={800}
@@ -118,11 +128,12 @@ Example format:
 
 ### 6. Testing
 1. Test local development
-   - [ ] Verify images load correctly
+   - [ ] Verify images load correctly from public/images
    - [ ] Check responsive sizes
    - [ ] Validate WebP delivery with fallbacks
 
 2. Test production build
+   - [ ] Set SPACE_IMAGES_URL and verify Space URLs
    - [ ] Verify CDN caching
    - [ ] Check load times
    - [ ] Monitor for 504 errors
@@ -138,6 +149,7 @@ After successful migration and testing:
 - ✓ Images optimized and converted to WebP
 - ✓ Responsive versions generated
 - ✓ Images uploaded to DO Space
+- [ ] Environment configuration set up
 - [ ] CDN properly configured
 - [ ] Cache headers verified
 - [ ] Image loader working with new URLs
@@ -151,15 +163,17 @@ After successful migration and testing:
 ✓ Access keys generated and configured
 ✓ Images optimized and converted to WebP
 ✓ Images uploaded to Space
+[ ] Environment configuration implemented
 [ ] Code updates implemented
 [ ] Testing completed
 [ ] Cleanup performed
 
 ## Developer Documentation
 - [Image Preprocessing Guide](IMAGE-PREPROCESSING.md) - Detailed guide for processing and optimizing images
+- [Image Environment Strategy](IMAGE-ENVIRONMENT-STRATEGY.md) - Guide for handling images across different environments
 
 ## Rollback Plan
 In case of issues:
-1. Keep old image paths in components (commented out)
-2. Maintain local copies of all images
+1. Remove SPACE_IMAGES_URL to revert to local images
+2. Maintain local copies of all images in public/images
 3. Document steps to revert changes if needed

@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    env: {
+        SPACE_IMAGES_URL: process.env.SPACE_IMAGES_URL || ''
+    },
     images: {
         loader: 'custom',
         loaderFile: './lib/imageLoader.ts',
         domains: [
+            'doc-driven-dev-space.nyc3.digitaloceanspaces.com',
             'docdrivendevelopment.com',
             'docdrivendev.com',
             'documentdrivendevelopment.com',
