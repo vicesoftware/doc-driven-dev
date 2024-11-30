@@ -36,7 +36,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## Features
-Below are details about the features of the app.
+
+### Image Optimization
+The project uses a custom image optimization setup with Digital Ocean Spaces and CDN:
+- Images are served from DO Spaces through CDN
+- WebP format with responsive sizes
+- Environment-based image handling (local/production)
+
+For details, see:
+- [Image Optimization Plan](docs/IMAGE-OPTIMIZATION-PLAN.md) - Overview and future improvements
+- [Space Migration Guide](docs/DO-SPACES-MIGRATION.md) - DO Space setup and configuration
+- [Environment Strategy](docs/IMAGE-ENVIRONMENT-STRATEGY.md) - Local vs production image handling
 
 ### Hero Header
 doc-driven-dev-process.png is created using [Figma Jam](https://www.figma.com/board/tQ6GX92WeqJu17x49vzIz1/Doc-Driven-Dev-Process?node-id=0-1&t=zUENpxVCz7yUS2Ke-1)
