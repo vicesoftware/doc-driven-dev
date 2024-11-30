@@ -19,7 +19,7 @@ export default function Header() {
           <Link href="#about" className="transition-colors hover:text-primary">
             About
           </Link>
-          <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <Link href="https://github.com/vicesoftware/doc-driven-dev" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
               <Github className="mr-2 h-4 w-4" />
               <span>Star on GitHub</span>
@@ -31,4 +31,3 @@ export default function Header() {
     </header>
   )
 }
-
