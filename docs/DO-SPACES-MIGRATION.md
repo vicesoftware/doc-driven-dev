@@ -42,7 +42,72 @@
 - All images successfully uploaded to Space
 - Verified public access and caching settings
 
-### 4. Code Updates (Next Steps)
+### 4. CDN Configuration
+
+#### Enable CDN
+1. Navigate to Digital Ocean Console
+   - Go to Spaces
+   - Select `doc-driven-dev-space`
+   - Click "Settings" tab
+   - Find "CDN" section
+   - Click "Enable CDN"
+   - Note: Initial provisioning takes ~15 minutes
+
+2. Configure Cache Headers
+   ```bash
+   # Update upload script with cache headers
+   aws s3 cp optimized-images/ s3://doc-driven-dev-space/images/ \
+     --recursive \
+     --profile=doc-driven-dev-spaces \
+     --endpoint=https://nyc3.digitaloceanspaces.com \
+     --cache-control "public, max-age=31536000, immutable" \
+     --content-type "image/webp" \
+     --acl public-read
+   ```
+
+3. Update Environment Configuration
+   ```env
+   # Update SPACE_IMAGES_URL to use CDN endpoint
+   SPACE_IMAGES_URL=https://doc-driven-dev-space.nyc3.cdn.digitaloceanspaces.com/images
+   ```
+
+#### Validation
+1. Verify CDN Setup
+   ```bash
+   # Check CDN response
+   curl -I https://doc-driven-dev-space.nyc3.cdn.digitaloceanspaces.com/images/example.webp
+   ```
+   Expected response:
+   ```
+   HTTP/2 200
+   cache-control: public, max-age=31536000, immutable
+   content-type: image/webp
+   ```
+
+2. Monitor Performance
+   - Enable Space metrics in DO console
+   - Set up alerts for:
+     * Bandwidth usage
+     * Request count
+     * Error rates
+   - Monitor CDN costs
+
+3. Performance Testing
+   - Run Lighthouse tests
+   - Check Web Vitals metrics
+   - Monitor load times
+   - Verify cache hit rates
+
+#### Rollback Procedure
+If CDN issues occur:
+1. Revert to direct Space URL:
+   ```env
+   SPACE_IMAGES_URL=https://doc-driven-dev-space.nyc3.digitaloceanspaces.com/images
+   ```
+2. Disable CDN in DO Console if needed
+3. Monitor error rates during transition
+
+### 5. Code Updates
 
 #### Environment Configuration
 ```bash
@@ -50,7 +115,7 @@
 # No SPACE_IMAGES_URL set
 
 # Production
-SPACE_IMAGES_URL=https://doc-driven-dev-space.nyc3.digitaloceanspaces.com/images
+SPACE_IMAGES_URL=https://doc-driven-dev-space.nyc3.cdn.digitaloceanspaces.com/images
 ```
 
 #### Update next.config.mjs
@@ -65,6 +130,7 @@ const nextConfig = {
         loaderFile: './lib/imageLoader.ts',
         domains: [
             'doc-driven-dev-space.nyc3.digitaloceanspaces.com',
+            'doc-driven-dev-space.nyc3.cdn.digitaloceanspaces.com',
             // ... existing domains ...
         ],
         deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -112,7 +178,7 @@ export default function imageLoader({
 }
 ```
 
-### 5. Component Updates
+### 6. Component Updates
 Update all image references to use relative paths. For detailed implementation guidelines, see [Image Preprocessing Guide](IMAGE-PREPROCESSING.md).
 
 Example format:
@@ -126,7 +192,7 @@ Example format:
 />
 ```
 
-### 6. Testing
+### 7. Testing
 1. Test local development
    - [ ] Verify images load correctly from public/images
    - [ ] Check responsive sizes
@@ -138,7 +204,7 @@ Example format:
    - [ ] Check load times
    - [ ] Monitor for 504 errors
 
-### 7. Cleanup
+### 8. Cleanup
 After successful migration and testing:
 1. [ ] Keep original images in version control as backup
 2. [ ] Update documentation
@@ -163,6 +229,7 @@ After successful migration and testing:
 ✓ Access keys generated and configured
 ✓ Images optimized and converted to WebP
 ✓ Images uploaded to Space
+[ ] CDN configured and validated
 [ ] Environment configuration implemented
 [ ] Code updates implemented
 [ ] Testing completed

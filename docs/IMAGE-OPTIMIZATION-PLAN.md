@@ -28,7 +28,9 @@ The application is experiencing image loading issues when deployed to Digital Oc
   - ✓ Separate static assets from application code
   - ✓ Better scalability and management
   - [ ] Enable CDN integration
-  - **Detailed implementation plan: [DO-SPACES-MIGRATION.md](DO-SPACES-MIGRATION.md)**
+  - **Detailed implementation plans:**
+    - [DO-SPACES-MIGRATION.md](DO-SPACES-MIGRATION.md)
+    - [IMAGE-ENVIRONMENT-STRATEGY.md](IMAGE-ENVIRONMENT-STRATEGY.md) (Environment-specific image handling)
 
 - [ ] Enable CDN for Spaces
   - [ ] Configure CDN endpoints
@@ -80,6 +82,7 @@ The application is experiencing image loading issues when deployed to Digital Oc
   - ✓ Implement responsive size selection
   - ✓ Add WebP support
   - [ ] Test edge cases and fallbacks
+  - **Environment handling: [IMAGE-ENVIRONMENT-STRATEGY.md](IMAGE-ENVIRONMENT-STRATEGY.md)**
 
 - [ ] Implement lazy loading
   - [ ] Add loading="lazy" to below-fold images
@@ -120,8 +123,10 @@ Current Status (as of last update):
    - Generated responsive sizes (640px, 750px, 828px, 1080px, 1200px, 1920px)
 4. ✓ Successfully uploaded all optimized images to DO Space
 5. ✓ Implemented imageLoader.ts with responsive size handling
-6. Next steps:
-   - Update component image references to use Space URLs
+6. ✓ Created environment-specific image handling strategy
+7. Next steps:
+   - Implement environment-based image loading
+   - Update component image references
    - Enable and configure CDN
    - Implement service worker for client-side caching
    - Set up monitoring and logging
