@@ -1,4 +1,21 @@
-# Image Loading Optimization Plan
+# Image Loading Optimization Plan <!-- omit in toc -->
+
+- [Original Issues](#original-issues)
+- [Current Implementation](#current-implementation)
+- [Completed Optimizations](#completed-optimizations)
+  - [Infrastructure ✓](#infrastructure-)
+  - [Image Processing ✓](#image-processing-)
+  - [CDN Integration ✓](#cdn-integration-)
+  - [Code Implementation ✓](#code-implementation-)
+  - [Environment Configuration ✓](#environment-configuration-)
+- [Documentation ✓](#documentation-)
+- [Future Improvements](#future-improvements)
+  - [Performance Enhancements](#performance-enhancements)
+  - [Monitoring \& Analytics](#monitoring--analytics)
+  - [Developer Experience](#developer-experience)
+- [Results Achieved](#results-achieved)
+- [Notes](#notes)
+
 
 ## Original Issues
 

@@ -1,4 +1,26 @@
-# Digital Ocean Spaces Migration Plan
+# Digital Ocean Spaces Migration Plan <!-- omit in toc -->
+
+- [Prerequisites](#prerequisites)
+- [Migration Steps](#migration-steps)
+  - [1. Image Preparation ✓](#1-image-preparation-)
+  - [2. Image Optimization ✓](#2-image-optimization-)
+  - [3. Upload to DO Spaces ✓](#3-upload-to-do-spaces-)
+  - [4. CDN Configuration](#4-cdn-configuration)
+    - [Enable CDN ✓](#enable-cdn-)
+    - [Validation](#validation)
+    - [Rollback Procedure](#rollback-procedure)
+  - [5. Code Updates](#5-code-updates)
+    - [Environment Configuration](#environment-configuration)
+    - [Update next.config.mjs](#update-nextconfigmjs)
+    - [Update imageLoader.ts](#update-imageloaderts)
+  - [6. Component Updates](#6-component-updates)
+  - [7. Testing](#7-testing)
+  - [8. Cleanup](#8-cleanup)
+- [Validation Checklist](#validation-checklist)
+- [Progress Tracking](#progress-tracking)
+- [Developer Documentation](#developer-documentation)
+- [Rollback Plan](#rollback-plan)
+
 
 ## Prerequisites
 

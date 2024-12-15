@@ -124,7 +124,7 @@ export default function DetailedSteps() {
                   <div className="grid gap-6">
                     {step.content.map((section, sectionIndex) => (
                       <div key={sectionIndex}>
-                        <h4 className="font-semibold mb-2 text-accent-foreground">
+                        <h4 className="font-semibold mb-2 text-primary">
                           {section.heading}
                         </h4>
                         <ul className="grid gap-2">
@@ -147,4 +147,3 @@ export default function DetailedSteps() {
     </section>
   )
 }
-
