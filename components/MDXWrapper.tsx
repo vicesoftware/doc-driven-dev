@@ -1,36 +1,41 @@
 'use client'
 
 import { MDXProvider } from '@mdx-js/react'
+import type { ReactNode, HTMLAttributes } from 'react'
+
+type MDXComponentProps = HTMLAttributes<HTMLElement> & {
+  children?: ReactNode
+}
 
 const components = {
-  h1: (props: any) => (
-    <h1 className="text-4xl font-bold mb-8" {...props} />
+  h1: ({ children, ...props }: MDXComponentProps) => (
+    <h1 className="text-4xl font-bold mb-8" {...props}>{children}</h1>
   ),
-  h2: (props: any) => (
-    <h2 className="text-3xl font-semibold mt-12 mb-6" {...props} />
+  h2: ({ children, ...props }: MDXComponentProps) => (
+    <h2 className="text-3xl font-semibold mt-12 mb-6" {...props}>{children}</h2>
   ),
-  p: (props: any) => (
-    <p className="mb-6 text-lg" {...props} />
+  p: ({ children, ...props }: MDXComponentProps) => (
+    <p className="mb-6 text-lg" {...props}>{children}</p>
   ),
-  ul: (props: any) => (
-    <ul className="list-disc pl-6 mb-6 space-y-2" {...props} />
+  ul: ({ children, ...props }: MDXComponentProps) => (
+    <ul className="list-disc pl-6 mb-6 space-y-2" {...props}>{children}</ul>
   ),
-  ol: (props: any) => (
-    <ol className="list-decimal pl-6 mb-6 space-y-2" {...props} />
+  ol: ({ children, ...props }: MDXComponentProps) => (
+    <ol className="list-decimal pl-6 mb-6 space-y-2" {...props}>{children}</ol>
   ),
-  li: (props: any) => (
-    <li className="text-lg" {...props} />
+  li: ({ children, ...props }: MDXComponentProps) => (
+    <li className="text-lg" {...props}>{children}</li>
   ),
-  blockquote: (props: any) => (
-    <blockquote className="border-l-4 border-primary pl-4 italic my-6" {...props} />
+  blockquote: ({ children, ...props }: MDXComponentProps) => (
+    <blockquote className="border-l-4 border-primary pl-4 italic my-6" {...props}>{children}</blockquote>
   ),
-  strong: (props: any) => (
-    <strong className="font-semibold" {...props} />
+  strong: ({ children, ...props }: MDXComponentProps) => (
+    <strong className="font-semibold" {...props}>{children}</strong>
   ),
 }
 
 interface MDXWrapperProps {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export default function MDXWrapper({ children }: MDXWrapperProps) {
