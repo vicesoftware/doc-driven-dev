@@ -1,0 +1,50 @@
+Working effectively with AI developers like Devin requires a structured approach. Here's a comprehensive guide on best practices based on real-world experience.
+
+## 1. Use DocDD.ai Approach
+
+The foundation of working effectively with Devin is following the DocDD.ai approach:
+
+- **Break Down Work**: Get your work assignments as small as possible while including maximum details
+- **Treat Like an Intern**: Approach Devin as you would a skilled intern - clear instructions and well-defined scope
+- **Structured Epics**: Break larger projects into manageable stories
+  - Example: An "Invoices" epic might contain separate stories for:
+    - Database setup
+    - API development
+    - User interface design
+
+## 2. Definition of Done
+
+Establishing clear completion criteria is crucial:
+
+- **Ownership**: Give Devin ownership of its definition of done
+- **Test-Driven Development**: Tests are the most effective way to verify completion
+  - Set up CI in GitHub for automated test runs
+  - While local testing is possible, some environments (like Supabase) may present challenges
+- **Task Completion**: Always instruct Devin to create tests and consider the task complete only when tests pass
+
+## 3. Working Through Pull Requests
+
+Maintain a professional development workflow:
+
+- **Requirements Reference**: Provide tasks with clear references to requirements
+  - Use GitHub issues or markdown files in source code
+- **PR Review Process**: Devin will create pull requests that you can review just like any developer's work
+
+## 4. Verification Process
+
+Always verify Devin's work thoroughly:
+
+- **Local Testing**: Pull the branch and run tests locally
+- **AI-Assisted Review**: Use tools like Cursor, Cline, or Aider to:
+  - Review test coverage
+  - Verify requirements alignment
+  - Get feedback on test quality
+
+## Best Practices Summary
+
+1. Break down tasks into small, detailed pieces
+2. Establish clear definitions of done through tests
+3. Use proper PR workflows
+4. Verify work thoroughly using both manual and AI-assisted methods
+
+> Remember, the key to success with Devin is treating it as a capable team member while maintaining clear structure and verification processes.
