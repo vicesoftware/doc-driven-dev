@@ -1,0 +1,142 @@
+A comprehensive guide to working effectively with Devin, the AI software engineer. Learn essential best practices based on real-world experience.
+
+<div className="text-2xl font-semibold text-primary mb-6 mt-12">1. Use DocDD.ai Approach</div>
+
+<div className="space-y-4 text-muted-foreground">
+  <p>
+    The foundation of working effectively with Devin is following the DocDD.ai approach:
+  </p>
+
+  <ul className="list-disc pl-6 space-y-2">
+    <li><span className="font-semibold">Break Down Work:</span> Get your work assignments as small as possible while including maximum details</li>
+    <li><span className="font-semibold">Treat Like an Intern:</span> Approach Devin as you would a skilled intern - clear instructions and well-defined scope</li>
+    <li><span className="font-semibold">Structured Epics:</span> Break larger projects into manageable stories</li>
+  </ul>
+
+  <p>
+    Example: An "Invoices" epic might contain separate stories for:
+  </p>
+
+  <ul className="list-disc pl-6 space-y-2">
+    <li>Database setup</li>
+    <li>API development</li>
+    <li>User interface design</li>
+  </ul>
+</div>
+
+<div className="text-2xl font-semibold text-primary mb-6 mt-12">2. Definition of Done</div>
+
+<div className="space-y-4 text-muted-foreground">
+  <p>
+    Establishing clear completion criteria is crucial:
+  </p>
+
+  ```mermaid
+  sequenceDiagram
+      participant D as Devin
+      participant T as Tests
+      participant CI as CI/GitHub
+      participant Dev as Developer
+      
+      D->>T: Write Tests
+      T->>CI: Push to GitHub
+      CI->>Dev: Run Tests
+      Dev->>D: Review & Feedback
+      D->>T: Update Tests
+      T->>CI: Push Updates
+      CI->>Dev: Verify Changes
+  ```
+
+  <ul className="list-disc pl-6 space-y-2">
+    <li><span className="font-semibold">Ownership:</span> Give Devin ownership of its definition of done</li>
+    <li><span className="font-semibold">Test-Driven Development:</span> Tests are the most effective way to verify completion</li>
+    <li><span className="font-semibold">CI Integration:</span> Set up CI in GitHub for automated test runs</li>
+    <li><span className="font-semibold">Task Completion:</span> Always instruct Devin to create tests and consider the task complete only when tests pass</li>
+  </ul>
+</div>
+
+<div className="text-2xl font-semibold text-primary mb-6 mt-12">3. Working Through Pull Requests</div>
+
+<div className="space-y-4 text-muted-foreground">
+  <p>
+    Maintain a professional development workflow:
+  </p>
+
+  ```mermaid
+  sequenceDiagram
+      participant PR as Pull Request
+      participant Dev as Developer
+      participant CI as CI/GitHub
+      
+      PR->>Dev: Create PR
+      Dev->>CI: Run Tests
+      CI->>Dev: Report Status
+      Dev->>PR: Review Changes
+      PR->>Dev: Update PR
+      Dev->>CI: Merge
+  ```
+
+  <ul className="list-disc pl-6 space-y-2">
+    <li><span className="font-semibold">Requirements Reference:</span> Provide tasks with clear references to requirements</li>
+    <li><span className="font-semibold">PR Review Process:</span> Devin will create pull requests that you can review just like any developer's work</li>
+  </ul>
+</div>
+
+<div className="text-2xl font-semibold text-primary mb-6 mt-12">4. Verification Process</div>
+
+<div className="space-y-4 text-muted-foreground">
+  <p>
+    Always verify Devin's work thoroughly:
+  </p>
+
+  ```mermaid
+  sequenceDiagram
+      participant D as Devin
+      participant T as Tests
+      participant CI as CI/GitHub
+      participant Dev as Developer
+      
+      D->>T: Write Tests
+      T->>CI: Push to GitHub
+      CI->>Dev: Run Tests
+      Dev->>D: Review & Feedback
+      D->>T: Update Tests
+      T->>CI: Push Updates
+      CI->>Dev: Verify Changes
+  ```
+
+  <ul className="list-disc pl-6 space-y-2">
+    <li><span className="font-semibold">Local Testing:</span> Pull the branch and run tests locally</li>
+    <li><span className="font-semibold">AI-Assisted Review:</span> Use tools like Cursor, Cline, or Aider to:</li>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Review test coverage</li>
+      <li>Verify requirements alignment</li>
+      <li>Get feedback on test quality</li>
+    </ul>
+  </ul>
+</div>
+
+<div className="text-2xl font-semibold text-primary mb-6 mt-12">Best Practices Summary</div>
+
+<div className="space-y-4 text-muted-foreground">
+  <p>
+    1. Break down tasks into small, detailed pieces
+  </p>
+  <p>
+    2. Establish clear definitions of done through tests
+  </p>
+  <p>
+    3. Use proper PR workflows
+  </p>
+  <p>
+    4. Verify work thoroughly using both manual and AI-assisted methods
+  </p>
+</div>
+
+<div className="text-2xl font-semibold text-primary mb-6 mt-12">Conclusion</div>
+
+<div className="space-y-4 text-muted-foreground">
+  <p>
+    Working with Devin effectively requires a structured approach, clear communication, and strong development practices. By following these best practices, you can maximize the benefits of AI-assisted development while maintaining high code quality and efficient workflows.
+  </p>
+</div>

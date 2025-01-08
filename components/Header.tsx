@@ -10,14 +10,11 @@ export default function Header() {
           <span className="text-xl font-bold text-primary">Document Driven Development</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          <Link href="#process" className="transition-colors hover:text-primary">
+          <Link href="/" className="transition-colors hover:text-primary">
             Process
           </Link>
-          <Link href="#steps" className="transition-colors hover:text-primary">
-            Steps
-          </Link>
-          <Link href="#about" className="transition-colors hover:text-primary">
-            About
+          <Link href="/articles" className="transition-colors hover:text-primary">
+            Articles
           </Link>
           <Link href="https://github.com/vicesoftware/doc-driven-dev" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">

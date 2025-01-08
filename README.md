@@ -37,6 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Features
 
+### AI Images
+They are created using [Microsoft Designer](https://designer.microsoft.com/image-creator?scenario=texttoimage)
+
 ### Image Optimization
 The project uses a custom image optimization setup with Digital Ocean Spaces and CDN:
 - Images are served from DO Spaces through CDN

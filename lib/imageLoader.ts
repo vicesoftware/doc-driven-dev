@@ -25,14 +25,19 @@ export default function imageLoader({
       return Math.abs(curr - width) < Math.abs(prev - width) ? curr : prev;
     });
 
-    return `${process.env.SPACE_IMAGES_URL}/${filename}.${targetWidth}.webp`;
+    // Use higher quality for smaller images
+    const targetQuality = targetWidth <= 750 ? 90 : 75;
+
+    return `${process.env.SPACE_IMAGES_URL}/${filename}.${targetWidth}.webp?q=${targetQuality}`;
   }
 
   // For other URLs (e.g., external images), maintain existing behavior
   if (src.startsWith('https://')) {
     const params = [`w=${width}`];
-    if (quality) {
-      params.push(`q=${quality}`);
+    // Use higher quality for smaller images
+    const targetQuality = width <= 750 ? 90 : quality;
+    if (targetQuality) {
+      params.push(`q=${targetQuality}`);
     }
     params.push('f=webp');
     return `${src}?${params.join('&')}`;
