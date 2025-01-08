@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
+import SimpleFooter from '@/components/SimpleFooter'
 
 export const metadata: Metadata = {
   title: 'Articles | Doc Driven Dev',
@@ -78,7 +78,7 @@ export default function ArticlesPage() {
           </Link>
         </div>
       </main>
-      <Footer />
+      <SimpleFooter />
     </div>
   )
 }

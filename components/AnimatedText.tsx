@@ -62,7 +62,7 @@ export function AnimatedText() {
               priority
             />
           </div>
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
