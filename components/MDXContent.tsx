@@ -2,6 +2,7 @@
 
 import { MDXProvider } from '@mdx-js/react'
 import type { ReactNode } from 'react'
+import MermaidDiagram from './MermaidDiagram'
 
 const components = {
   h1: (props: any) => (
@@ -28,6 +29,17 @@ const components = {
   strong: (props: any) => (
     <strong className="font-semibold" {...props} />
   ),
+  pre: (props: any) => {
+    const { children } = props
+    if (
+      children?.props?.className === 'language-mermaid' ||
+      children?.props?.children?.includes('graph') ||
+      children?.props?.children?.includes('sequenceDiagram')
+    ) {
+      return <MermaidDiagram chart={children.props.children} />
+    }
+    return <pre {...props} />
+  },
 }
 
 interface MDXContentProps {

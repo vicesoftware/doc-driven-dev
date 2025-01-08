@@ -38,8 +38,10 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [[remarkGfm, { singleTilde: false }]],
     rehypePlugins: [rehypeSlug, rehypeHighlight],
+    format: 'mdx',
+    providerImportSource: "@mdx-js/react",
   },
 })
 

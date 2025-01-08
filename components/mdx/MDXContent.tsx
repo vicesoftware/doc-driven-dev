@@ -93,9 +93,15 @@ const components = {
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 w-full overflow-y-auto">
+    <div className="my-6 w-full overflow-x-auto">
       <table className={cn("w-full", className)} {...props} />
     </div>
+  ),
+  thead: ({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className={cn(
+      "bg-gradient-to-r from-primary/90 to-primary dark:from-primary/80 dark:to-primary/70 text-white shadow-sm",
+      className
+    )} {...props} />
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
@@ -123,6 +129,9 @@ const components = {
       )}
       {...props}
     />
+  ),
+  tbody: ({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody className={cn("divide-y divide-gray-200 dark:divide-gray-700", className)} {...props} />
   ),
 }
 
