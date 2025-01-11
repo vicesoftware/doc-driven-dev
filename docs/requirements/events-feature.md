@@ -11,11 +11,10 @@ The events feature will mirror the Articles feature structure with:
 ## Process
 When working on the Tasks in this feature implementation, follow these steps:
 1. Pick the next tasks that isn't inprogress
-2. Create a new branch for the task
-3. Implement the task
-4. Ask the developer to test the feature
-5. Once approved, commit the changes, merge the branch and close the task by updating it's status in this document
-6. Move on to the next task
+2. Implement the task
+3. Ask the developer to test the feature
+4. Once approved, commit the changes and close the task by updating it's status in this document
+5. Move on to the next task
 
 ## Tasks
 
@@ -33,17 +32,17 @@ When working on the Tasks in this feature implementation, follow these steps:
   - Metadata handling
 - Update Articles feature to use new shared components
 
-### ⏳ 2. Events List Page
+### ✅ 2. Events List Page
 **Priority**: High
-**Status**: Not Started
+**Status**: Completed
 **Can be done in parallel**: Yes (after step 1)
-- Create events content structure in `/app/events/content`
-- Define event metadata schema (date, title, description, location)
-- Create `/app/events/page.tsx`
-- Implement event list layout and styling
-- Add sorting functionality (by date)
-- Include event cards with key information
-- Add filtering capabilities (optional)
+- ✅ Create events content structure in `/app/events/content`
+- ✅ Define event metadata schema (date, title, description, location)
+- ✅ Create `/app/events/page.tsx`
+- ✅ Implement event list layout and styling
+- ✅ Add sorting functionality (by date)
+- ✅ Include event cards with key information
+- ✅ Add filtering capabilities (optional)
 
 ### ⏳ 3. Event Detail Pages
 **Priority**: High
