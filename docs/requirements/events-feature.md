@@ -33,19 +33,7 @@ When working on the Tasks in this feature implementation, follow these steps:
   - Metadata handling
 - Update Articles feature to use new shared components
 
-### 🔄 2. Architecture Documentation
-**Priority**: Highest
-**Status**: Not Started
-**Can be done in parallel**: Yes (with Task 1)
-- Create architecture documentation covering:
-  - Component structure and hierarchy
-  - Content organization (MDX, static assets)
-  - Rendering patterns (Server vs Client Components)
-  - SEO and metadata approach
-  - Best practices for new features
-- Document in `/docs/architecture/content-features.md`
-
-### ⏳ 3. Events Data Structure
+### ⏳ 2. Events Data Structure
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: No (depends on Task 1)
@@ -53,7 +41,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Define the event metadata schema (date, title, description, location, etc.)
 - Create sample event MDX files for testing
 
-### ⏳ 4. Events List Page
+### ⏳ 3. Events List Page
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
@@ -63,7 +51,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Include event cards with key information
 - Add filtering capabilities (optional)
 
-### ⏳ 5. Event Detail Pages
+### ⏳ 4. Event Detail Pages
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
@@ -73,7 +61,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Add event metadata display
 - Include registration/RSVP functionality (if required)
 
-### ⏳ 6. Home Page Integration
+### ⏳ 5. Home Page Integration
 **Priority**: Medium
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
@@ -82,7 +70,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Show upcoming events (next 3-5)
 - Include "View All Events" link
 
-### ⏳ 7. Shared Components
+### ⏳ 6. Shared Components
 **Priority**: Medium
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
@@ -90,7 +78,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Implement event date formatting utilities
 - Add shared styling for event displays
 
-### ⏳ 8. Layout and Navigation
+### ⏳ 7. Layout and Navigation
 **Priority**: Medium
 **Status**: Not Started
 **Can be done in parallel**: Yes
@@ -99,7 +87,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Implement breadcrumb navigation
 - Ensure responsive design
 
-### ⏳ 9. Testing and Documentation
+### ⏳ 8. Testing and Documentation
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: No (should be done last)
