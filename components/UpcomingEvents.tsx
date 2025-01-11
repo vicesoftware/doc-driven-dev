@@ -6,23 +6,14 @@ import { sortEventsByDate } from '@/lib/date-utils'
 // Events are sorted by date
 const events = [
   {
-    title: 'AI Hackathon 2025',
-    description: 'Join us for an exciting weekend of innovation, coding, and collaboration. Create cutting-edge applications using the latest AI technologies.',
+    title: 'Context is King: Boosting Developer Productivity with DocDD',
+    description: 'Join Ryan Vice for an in-depth exploration of Documentation Driven Development (DocDD) and how it revolutionizes AI-assisted development by prioritizing context.',
     imageSrc: '/images/ai-hackathon.jpeg',
-    imageAlt: 'AI Hackathon 2025 event banner',
-    href: '/events/ai-hackathon-2025',
+    imageAlt: 'Context is King: Boosting Developer Productivity with DocDD - Event Banner',
+    href: '/events/12th-cto-colloquium-park-city-ut',
     startDate: '2025-02-15',
     endDate: '2025-02-16',
     location: 'Tech Hub Downtown, Austin TX'
-  },
-  {
-    title: 'Document-Driven Development Workshop',
-    description: 'Learn how to improve your development workflow, reduce technical debt, and create better software through effective documentation.',
-    imageSrc: '/images/doc-workshop.jpeg',
-    imageAlt: 'Document-Driven Development Workshop banner',
-    href: '/events/doc-driven-dev-workshop',
-    startDate: '2025-03-01',
-    location: 'Virtual Event (Zoom)'
   }
 ].sort(sortEventsByDate)
 
