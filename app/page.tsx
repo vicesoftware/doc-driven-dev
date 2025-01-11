@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import ProcessOverview from '@/components/ProcessOverview'
 import DetailedSteps from '@/components/DetailedSteps'
+import UpcomingEvents from '@/components/UpcomingEvents'
 import RecentArticles from '@/components/RecentArticles'
 import AboutCreator from '@/components/AboutCreator'
 import Footer from '@/components/Footer'
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <ProcessOverview />
         <DetailedSteps />
+        <UpcomingEvents />
         <RecentArticles />
         <AboutCreator />
       </main>
