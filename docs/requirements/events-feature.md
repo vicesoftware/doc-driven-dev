@@ -33,35 +33,30 @@ When working on the Tasks in this feature implementation, follow these steps:
   - Metadata handling
 - Update Articles feature to use new shared components
 
-### ⏳ 2. Events Data Structure
-**Priority**: High
-**Status**: Not Started
-**Can be done in parallel**: No (depends on Task 1)
-- Create an events content structure in `/app/events/content`
-- Define the event metadata schema (date, title, description, location, etc.)
-- Create sample event MDX files for testing
-
-### ⏳ 3. Events List Page
+### ⏳ 2. Events List Page
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
+- Create events content structure in `/app/events/content`
+- Define event metadata schema (date, title, description, location)
 - Create `/app/events/page.tsx`
 - Implement event list layout and styling
 - Add sorting functionality (by date)
 - Include event cards with key information
 - Add filtering capabilities (optional)
 
-### ⏳ 4. Event Detail Pages
+### ⏳ 3. Event Detail Pages
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
+- Create sample event MDX files for testing
 - Create dynamic route structure for individual events
 - Implement `/app/events/[slug]/page.tsx`
 - Create event detail layout
 - Add event metadata display
 - Include registration/RSVP functionality (if required)
 
-### ⏳ 5. Home Page Integration
+### ⏳ 4. Home Page Integration
 **Priority**: Medium
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
@@ -70,7 +65,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Show upcoming events (next 3-5)
 - Include "View All Events" link
 
-### ⏳ 6. Shared Components
+### ⏳ 5. Shared Components
 **Priority**: Medium
 **Status**: Not Started
 **Can be done in parallel**: Yes (after step 1)
@@ -78,7 +73,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Implement event date formatting utilities
 - Add shared styling for event displays
 
-### ⏳ 7. Layout and Navigation
+### ⏳ 6. Layout and Navigation
 **Priority**: Medium
 **Status**: Not Started
 **Can be done in parallel**: Yes
@@ -87,7 +82,7 @@ When working on the Tasks in this feature implementation, follow these steps:
 - Implement breadcrumb navigation
 - Ensure responsive design
 
-### ⏳ 8. Testing and Documentation
+### ⏳ 7. Testing and Documentation
 **Priority**: High
 **Status**: Not Started
 **Can be done in parallel**: No (should be done last)
