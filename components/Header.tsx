@@ -16,6 +16,9 @@ export default function Header() {
           <Link href="/articles" className="transition-colors hover:text-primary">
             Articles
           </Link>
+          <Link href="/events" className="transition-colors hover:text-primary">
+            Events
+          </Link>
           <Link href="https://github.com/vicesoftware/doc-driven-dev" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
               <Github className="mr-2 h-4 w-4" />
